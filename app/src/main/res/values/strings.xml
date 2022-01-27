@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MADfinal</string>
+    <string name="login">LOGIN</string>
+    <string name="welcome_to_bmsce_events">Welcome to BMSCE Events!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="event_feed">EVENT FEED</string>
+    <string name="pranav_kulkarni">Pranav Kulkarni</string>
+    <string name="student_ise">Student, ISE</string>
+    <string name="more">TODO</string>
+    <string name="sample_event">Sample Event</string>
+    <string name="post">Post</string>
+    <string name="create_password">Create Password</string>
+    <string name="add_e_mail">Add E-mail</string>
+    <string name="select_if_you_re_a_teacher">Select if you\'re a teacher</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="LogOut" />
+    <string name="fragment_2">Fragment 2</string>
+
+</resources>
