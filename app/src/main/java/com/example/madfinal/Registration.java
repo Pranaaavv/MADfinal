@@ -15,21 +15,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
-
+import java.util.HashMap;
+import java.util.Objects;
 
 
 public class Registration extends AppCompatActivity implements View.OnClickListener {
 
     private EditText mEmail, mPassword, mName;
-    private Button mRegisterBtn;
-//    private ProgressBar progressBar;
+    //    private ProgressBar progressBar;
     private RadioButton mRadio;
     private ImageView banner;
 
@@ -47,7 +48,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
         mAuth = FirebaseAuth.getInstance();
 
-        mRegisterBtn = (Button) findViewById(R.id.mRegisterBtn);
+        Button mRegisterBtn = (Button) findViewById(R.id.mRegisterBtn);
         mRegisterBtn.setOnClickListener(this);
 
         mName = (EditText) findViewById(R.id.mNameET);
@@ -112,33 +113,67 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            UserHelperClass helperClass = new UserHelperClass(name, email);
+//
+//                            FirebaseDatabase.getInstance().getReference("Users")
+//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                    .setValue(helperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//
+//                                    if (task.isSuccessful()) {
+//                                        Toast.makeText(Registration.this, "You are successfully Registered", Toast.LENGTH_LONG).show();
+////                                        progressBar.setVisibility(View.GONE);
+//                                    } else {
+//                                        Toast.makeText(Registration.this, "You are not Registered!", Toast.LENGTH_LONG).show();
+////                                        progressBar.setVisibility(View.GONE);
+//
+//                                    }
+//
+//                                }
+//                            });
+//                        }
+
+
                         if (task.isSuccessful()) {
-                            UserHelperClass helperClass = new UserHelperClass(name, email);
 
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(helperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            String email = Objects.requireNonNull(user).getEmail();
+                            String uid = user.getUid();
+                            HashMap<Object, String> hashMap = new HashMap<>();
+                            hashMap.put("email", email);
+                            hashMap.put("name", name);
+                            hashMap.put("onlineStatus", "online");
+                            hashMap.put("typingTo", "noOne");
+                            hashMap.put("image", "");
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference reference = database.getReference("Users");
+                            reference.child(uid).setValue(hashMap);
+                            Toast.makeText(Registration.this, "Registered User " + user.getEmail(), Toast.LENGTH_LONG).show();
+                            Intent mainIntent = new Intent(Registration.this, Home.class);
+                            mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(mainIntent);
+                            finish();
+                        } else {
 
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(Registration.this, "You are successfully Registered", Toast.LENGTH_LONG).show();
-//                                        progressBar.setVisibility(View.GONE);
-                                    } else {
-                                        Toast.makeText(Registration.this, "You are not Registered!", Toast.LENGTH_LONG).show();
-//                                        progressBar.setVisibility(View.GONE);
-
-                                    }
-
-                                }
-                            });
+                            Toast.makeText(Registration.this, "Error", Toast.LENGTH_LONG).show();
                         }
                     }
-                });
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
 
+                Toast.makeText(Registration.this, "Error Occured", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
+
+
+
 }
+
 
 
 

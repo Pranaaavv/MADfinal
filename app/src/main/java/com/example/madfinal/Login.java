@@ -17,8 +17,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.ls.LSInput;
+
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -92,7 +98,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                startActivity(new Intent(Login.this, Home.class));
+//                startActivity(new Intent(Login.this, Home.class));
 
 //                if (task.isSuccessful()) {
 //                        startActivity(new Intent(Login.this, Home.class));
@@ -101,84 +107,48 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 //                else {
 //                        Toast.makeText(Home.this, "Please Check Your login Credentials",Toast.LENGTH_LONG).show();
 //                    }
+                if (task.isSuccessful()) {
+
+
+                    FirebaseUser user = mAuth.getCurrentUser();
+
+                    if (Objects.requireNonNull(task.getResult().getAdditionalUserInfo()).isNewUser()) {
+                        String email = Objects.requireNonNull(user).getEmail();
+                        String uid = user.getUid();
+                        HashMap<Object, String> hashMap = new HashMap<>();
+                        hashMap.put("email", email);
+                        hashMap.put("uid", uid);
+                        hashMap.put("name", "");
+                        hashMap.put("onlineStatus", "online");
+                        hashMap.put("typingTo", "noOne");
+                        hashMap.put("phone", "");
+                        hashMap.put("image", "");
+                        hashMap.put("cover", "");
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                        // store the value in Database in "Users" Node
+                        DatabaseReference reference = database.getReference("Users");
+
+                        // storing the value in Firebase
+                        reference.child(uid).setValue(hashMap);
+                    }
+                    Toast.makeText(Login.this, "Registered User " + user.getEmail(), Toast.LENGTH_LONG).show();
+                    Intent mainIntent = new Intent(Login.this, Home.class);
+                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(mainIntent);
+                    finish();
+                } else {
+
+                    Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
+                }
+
+
+
+
+
+
 
             }
         });
-
-
-
-
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
-//    FirebaseAuth mAuth;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
-//        user_name = findViewById(R.id.mEmailET);
-//        pass_word = findViewById(R.id.mPasswordET);
-//        //Register Btn
-//        btn_sign = (TextView) findViewById(R.id.LSignup);
-////
-//        Button btn_login = findViewById(R.id.btnlogin);
-//
-//        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//
-//
-//        btn_login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Task<AuthResult> please_check_your_login_credentials = mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-//
-//
-//                });
-//            }
-//
-//        });
-//        btn_sign.setOnClickListener(v -> startActivity(new Intent(Login.this, Registration.class)));
-//    }
-//
-//
-
-
-
-
-
