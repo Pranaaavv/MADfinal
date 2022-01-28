@@ -157,14 +157,14 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                             finish();
                         } else {
 
-                            Toast.makeText(Registration.this, "Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Registration.this, "Error ", Toast.LENGTH_LONG).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                Toast.makeText(Registration.this, "Error Occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(Registration.this, "User already exists", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -41,6 +41,7 @@
 
             android:textColorHighlight="@color/LightSteelBlue"
             android:textSize="28sp" />
+
     </RelativeLayout>
 
     <LinearLayout
@@ -58,13 +59,11 @@
         android:orientation="vertical">
 
 
-
         <EditText
             android:id="@+id/Lemail"
-            android:hint="E-mail"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            />
+            android:hint="E-mail" />
 
         <EditText
             android:id="@+id/Lpassword"
@@ -115,7 +114,6 @@
 
         </TextView>
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
