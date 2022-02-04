@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "652090625332",
-    "project_id": "bmsce-events",
-    "storage_bucket": "bmsce-events.appspot.com"
+    "project_number": "917233055909",
+    "project_id": "madfinal-7d51f",
+    "storage_bucket": "madfinal-7d51f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:652090625332:android:0eaaac0a0b7fcb99336961",
+        "mobilesdk_app_id": "1:917233055909:android:2931ca7e0aa2045dd9754c",
         "android_client_info": {
           "package_name": "com.example.madfinal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "652090625332-4j1c2f8f45rmi7pouvrne75j81j8jl0a.apps.googleusercontent.com",
+          "client_id": "917233055909-a0ocer9rfvurtuk2qf6l3lvgld4fdr2o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBsNI8euorNs2ihuKeEiMypQN0R1LShog8"
+          "current_key": "AIzaSyAFnKn3Hu08KjMGnGafqNztCrLdiLc1Io4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "652090625332-4j1c2f8f45rmi7pouvrne75j81j8jl0a.apps.googleusercontent.com",
+              "client_id": "917233055909-a0ocer9rfvurtuk2qf6l3lvgld4fdr2o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

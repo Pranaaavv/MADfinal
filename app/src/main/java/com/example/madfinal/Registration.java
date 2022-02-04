@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -74,7 +75,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void registerUser() {
+    public void registerUser() {
         String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         String name = mName.getText().toString().trim();
@@ -140,6 +141,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
 
                             FirebaseUser user = mAuth.getCurrentUser();
                             String email = Objects.requireNonNull(user).getEmail();
+
                             String uid = user.getUid();
                             HashMap<Object, String> hashMap = new HashMap<>();
                             hashMap.put("email", email);

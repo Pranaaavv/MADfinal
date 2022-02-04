@@ -16,13 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MADfinal">
-        <activity android:name=".PostDetailsActivity" />
-        <activity android:name=".PostLikedByActivity" />
-        <activity android:name=".addpost" />
         <activity android:name=".Home" />
         <activity android:name=".Registration" />
         <activity android:name=".Login" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

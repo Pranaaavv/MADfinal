@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MADfinal/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
+        <entry key="..\:/MADfinal/app/src/main/res/drawable/curve.xml" value="0.1195" />
         <entry key="..\:/MADfinal/app/src/main/res/drawable/edit.xml" value="0.13333333333333333" />
         <entry key="..\:/MADfinal/app/src/main/res/drawable/font.xml" value="0.290625" />
         <entry key="..\:/MADfinal/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.290625" />
@@ -18,18 +19,21 @@
         <entry key="..\:/MADfinal/app/src/main/res/font/poppins_semibold.xml" value="0.3046875" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_addpost.xml" value="0.176" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_dashboard.xml" value="0.152" />
-        <entry key="..\:/MADfinal/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/MADfinal/app/src/main/res/layout/activity_full_image_view.xml" value="0.12" />
+        <entry key="..\:/MADfinal/app/src/main/res/layout/activity_home.xml" value="0.12" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_login.xml" value="0.26222826086956524" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_post_details.xml" value="0.27447916666666666" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_post_liked_by.xml" value="0.1171875" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/add_post_to_home.xml" value="0.1171875" />
+        <entry key="..\:/MADfinal/app/src/main/res/layout/content_main.xml" value="0.536" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/dash.xml" value="0.264" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/fragment_1.xml" value="0.152" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/fragment_1_samplefeed.xml" value="0.2" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/fragment_2.xml" value="0.1" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/fragment_3.xml" value="0.2608695652173913" />
+        <entry key="..\:/MADfinal/app/src/main/res/layout/newsfeed_item_layout.xml" value="0.264" />
         <entry key="..\:/MADfinal/app/src/main/res/layout/row_posts.xml" value="0.2" />
         <entry key="..\:/MADfinal/app/src/main/res/menu/bottom_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/MADfinal/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
